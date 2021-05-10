@@ -26,9 +26,6 @@ public class DAOBook {
     private boolean isBorrowed;
     @Column(name="quantity")
     private int quantity;
-    @ManyToOne
-    @JoinTable(name="users", joinColumns = @JoinColumn(name="id"))
-    private UsersDTO userId;
 
     public long getId() {
         return id;
@@ -78,14 +75,6 @@ public class DAOBook {
         this.quantity = quantity;
     }
 
-    public UsersDTO getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UsersDTO userId) {
-        this.userId = userId;
-    }
-
     public DAOBook() {
     }
 
@@ -94,14 +83,12 @@ public class DAOBook {
                    String author,
                    String category,
                    boolean isBorrowed,
-                   int quantity,
-                   UsersDTO userId) {
+                   int quantity) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.category = category;
         this.isBorrowed = isBorrowed;
         this.quantity = quantity;
-        this.userId = userId;
     }
 }

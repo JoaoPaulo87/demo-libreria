@@ -11,8 +11,8 @@
 	<groupId>com.example.template</groupId>
 	<artifactId>Template</artifactId>
 	<version>1.0.0</version>
-	<name>Template-API</name>
-	<description>API as template with configurations for security by users and roles, Swagger and more tools</description>
+	<name>Biblioteca</name>
+	<description>Library's app with configurations for security by users and roles, Swagger and more tools</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
