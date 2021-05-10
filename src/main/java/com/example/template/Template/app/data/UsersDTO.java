@@ -1,7 +1,10 @@
 package com.example.template.Template.app.data;
 
+import com.example.template.Template.modules.data.DAOBook;
+
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,6 +19,10 @@ public class UsersDTO {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
     private Set<RolesDTO> roles = new HashSet<>();
+
+    @OneToMany
+    @JoinColumn(name="user_id")
+    private List<DAOBook> bookList;
 
     public UsersDTO() {
     }
@@ -55,5 +62,13 @@ public class UsersDTO {
 
     public void setRoles(Set<RolesDTO> roles) {
         this.roles = roles;
+    }
+
+    public List<DAOBook> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<DAOBook> bookList) {
+        this.bookList = bookList;
     }
 }
