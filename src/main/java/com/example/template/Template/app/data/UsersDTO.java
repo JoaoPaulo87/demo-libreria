@@ -1,7 +1,10 @@
 package com.example.template.Template.app.data;
 
+import com.example.template.Template.modules.data.DAOBook;
+
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
