@@ -1,8 +1,5 @@
 package com.example.template.Template.modules.data;
 
-import com.example.template.Template.app.data.UsersDTO;
-import org.apache.catalina.User;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,24 +11,22 @@ import javax.persistence.*;
 @Table(name = "book")
 public class DAOBook {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name="title")
+    @Column()
     private String title;
-    @Column(name="author")
+    @Column()
     private String author;
-    @Column(name="category")
+    @Column()
     private String category;
-    @Column(name="is_borrowed")
-    private boolean isBorrowed;
-    @Column(name="quantity")
+    @Column()
     private int quantity;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -59,15 +54,7 @@ public class DAOBook {
         this.category = category;
     }
 
-    public boolean isBorrowed() {
-        return isBorrowed;
-    }
-
-    public void setBorrowed(boolean borrowed) {
-        isBorrowed = borrowed;
-    }
-
-    public int isQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
@@ -78,17 +65,15 @@ public class DAOBook {
     public DAOBook() {
     }
 
-    public DAOBook(long id,
+    public DAOBook(Long id,
                    String title,
                    String author,
                    String category,
-                   boolean isBorrowed,
                    int quantity) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.category = category;
-        this.isBorrowed = isBorrowed;
         this.quantity = quantity;
     }
 }

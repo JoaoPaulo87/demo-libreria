@@ -6,10 +6,12 @@ import org.springframework.stereotype.Repository;
 import com.example.template.Template.modules.data.DAOBook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<DAOBook, Long> {
     public DAOBook findByTitle(String title);
     public DAOBook findByCategory(String category);
-    public ArrayList<DAOBook> findByIs_borrowed(boolean borrowed);
+
+    List<DAOBook> findAllByCategory(String category);
 }
