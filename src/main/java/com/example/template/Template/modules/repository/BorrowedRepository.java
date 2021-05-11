@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface BorrowedRepository extends JpaRepository<UsersBook, Integer> {
     public List<UsersBook> getData(HashMap<String, Object> conditions);
-    public List<UsersBook> findAllByUserId(Integer userId);
+    public List<UsersBook> findAllByUserId(Long userId);
 }

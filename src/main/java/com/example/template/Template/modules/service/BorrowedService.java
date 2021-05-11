@@ -67,7 +67,7 @@ public class BorrowedService {
         }
     }
 
-    public List<UsersBook> findAllByUserId(Integer userId){
+    public List<UsersBook> findAllByUserId(Long userId){
         return this.borrowedRepository.findAllByUserId(userId);
     }
 }

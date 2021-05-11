@@ -40,7 +40,7 @@ public class BorrowedController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<List<UsersBook>> findAllByUserId(@PathVariable(name="id") Integer id){
+    public ResponseEntity<List<UsersBook>> findBooksBorrowedByUser(@PathVariable(name="id") Long id){
         return ResponseEntity.ok(this.borrowedService.findAllByUserId(id));
     }
 }
