@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @ControllerDocumentation
 @RequestMapping("/api/borrowed")
 public class BorrowedController {
@@ -18,8 +20,8 @@ public class BorrowedController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<UsersBook> findAllBorrowedBooks(@PathVariable(name="id") int id){
-        return ResponseEntity.ok(this.borrowedService.findById(id));
+    public ResponseEntity<List<UsersBook>> findBooksBorrowedByUser(@PathVariable(name="id") int id){
+        return ResponseEntity.ok(this.borrowedService.findBooksBorrowedByUser(id));
     }
 
     @PostMapping("/borrow_book")

@@ -1,11 +1,13 @@
 package com.example.template.Template.modules.data;
 
 import com.example.template.Template.app.data.UsersDTO;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="users_book")
+@Data
 public class UsersBook {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -7,6 +7,9 @@ import com.example.template.Template.modules.repository.BorrowedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+
 @Service
 public class BorrowedService {
 
@@ -19,6 +22,17 @@ public class BorrowedService {
 
     public UsersBook findById(int id){
         return this.borrowedRepository.findById(id).orElse(null);
+    }
+
+    public List<UsersBook> findBooksBorrowedByUser(Integer userID){
+
+        HashMap<String,Object> hm= new HashMap<>();
+
+        if (userID != null){
+            hm.put("id_user",userID);
+        }
+
+        return this.borrowedRepository.getData(hm);
     }
 
     public UsersBook borrowBook(Long userID, Long bookID){
