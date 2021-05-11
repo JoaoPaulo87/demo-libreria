@@ -45,8 +45,8 @@ public class BorrowedService {
 
             System.out.println("Returning userID " + user);
 
-            usersBook.setBookId(daoBook);
-            usersBook.setUserId(user);
+            usersBook.setBook(daoBook);
+            usersBook.setUser(user);
 
             System.out.println("Returning usersBook " + usersBook);
             return this.borrowedRepository.save(usersBook);
@@ -60,7 +60,7 @@ public class BorrowedService {
         UsersBook usersBook = this.borrowedRepository.findById(id).orElse(null);
 
         if (usersBook != null){
-            DAOBook daoBook = usersBook.getBookId();
+            DAOBook daoBook = usersBook.getBook();
             this.bookService.returnBook(daoBook.getId());
 
             this.borrowedRepository.deleteById(id);

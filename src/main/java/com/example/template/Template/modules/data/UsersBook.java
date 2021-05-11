@@ -14,13 +14,10 @@ public class UsersBook {
     private int id;
     @ManyToOne()
     @JoinColumn(name = "id_book")
-    private DAOBook bookId;
+    private DAOBook book;
     @ManyToOne()
     @JoinColumn(name = "id_user")
-    private UsersDTO userId;
-
-    public UsersBook() {
-    }
+    private UsersDTO user;
 
     public int getId() {
         return id;
@@ -30,25 +27,28 @@ public class UsersBook {
         this.id = id;
     }
 
-    public DAOBook getBookId() {
-        return bookId;
+    public DAOBook getBook() {
+        return book;
     }
 
-    public void setBookId(DAOBook bookId) {
-        this.bookId = bookId;
+    public void setBook(DAOBook book) {
+        this.book = book;
     }
 
-    public UsersDTO getUserId() {
-        return userId;
+    public UsersDTO getUser() {
+        return user;
     }
 
-    public void setUserId(UsersDTO userId) {
-        this.userId = userId;
+    public void setUser(UsersDTO user) {
+        this.user = user;
     }
 
-    public UsersBook(int id, DAOBook bookId, UsersDTO userId) {
+    public UsersBook() {
+    }
+
+    public UsersBook(int id, DAOBook book, UsersDTO user) {
         this.id = id;
-        this.bookId = bookId;
-        this.userId = userId;
+        this.book = book;
+        this.user = user;
     }
 }
