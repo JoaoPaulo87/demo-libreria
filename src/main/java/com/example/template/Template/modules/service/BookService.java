@@ -1,5 +1,6 @@
 package com.example.template.Template.modules.service;
 
+import com.example.template.Template.app.data.UsersDTO;
 import com.example.template.Template.modules.data.DAOBook;
 import com.example.template.Template.modules.data.UsersBook;
 import com.example.template.Template.modules.repository.BookRepository;
@@ -60,7 +61,15 @@ public class BookService {
             return false;
         }
     }
-    //Filtrar libros por disponible/no disponible y/o ordenado por cantidad, titulo, autor o categoria.
+    public List<DAOBook> findAllByOrderByTitleAsc(){
+        return this.bookRepository.findAllByOrderByTitleAsc();
+    }
 
+    public List<DAOBook> findAllByOrderByAuthorAsc(){
+        return this.bookRepository.findAllByOrderByAuthorAsc();
+    }
 
+    public List<DAOBook> findAllByOrderByCategoryAsc(){
+        return this.bookRepository.findAllByOrderByCategoryAsc();
+    }
 }

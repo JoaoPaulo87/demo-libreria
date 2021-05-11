@@ -11,7 +11,12 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<DAOBook, Long> {
     public DAOBook findByTitle(String title);
-    public DAOBook findByCategory(String category);
 
-    List<DAOBook> findAllByCategory(String category);
+    public List<DAOBook> findAllByCategory(String category);
+
+    public List<DAOBook> findAllByOrderByTitleAsc();
+
+    public List<DAOBook> findAllByOrderByAuthorAsc();
+
+    public List<DAOBook> findAllByOrderByCategoryAsc();
 }

@@ -18,18 +18,6 @@ public class BorrowedController {
     @Autowired
     BorrowedService borrowedService;
 
-//    @GetMapping("/{id}")
-//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-//    public ResponseEntity<List<UsersBook>> findBooksBorrowedByUser(@PathVariable(name="id") int id){
-//        return ResponseEntity.ok(this.borrowedService.findBooksBorrowedByUser(id));
-//    }
-
-    @PostMapping("/borrow_book")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<UsersBook>borrowBook(@RequestParam(name="id_user") Long userID,
-                                               @RequestParam(name="id_book") Long bookID) {
-        return ResponseEntity.ok(this.borrowedService.borrowBook(userID, bookID));
-    }
 
     @PostMapping("/return_book")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
@@ -43,4 +31,17 @@ public class BorrowedController {
     public ResponseEntity<List<UsersBook>> findBooksBorrowedByUser(@PathVariable(name="id") Long id){
         return ResponseEntity.ok(this.borrowedService.findAllByUserId(id));
     }
+
+    @PostMapping("/borrow_book")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    public ResponseEntity<UsersBook>borrowBook(@RequestParam(name="id_user") Long userID,
+                                               @RequestParam(name="id_book") Long bookID) {
+        return ResponseEntity.ok(this.borrowedService.borrowBook(userID, bookID));
+    }
+
+//    @GetMapping("/{id}")
+//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//    public ResponseEntity<List<UsersBook>> findBooksBorrowedByUser(@PathVariable(name="id") int id){
+//        return ResponseEntity.ok(this.borrowedService.findBooksBorrowedByUser(id));
+//    }
 }
