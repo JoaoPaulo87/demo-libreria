@@ -8,22 +8,22 @@ import javax.persistence.*;
 @Table(name="users_book")
 public class UsersBook {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     @ManyToOne()
-    @JoinColumn(name="idBook")
-    private DAOBook idBook;
+    @JoinColumn(name="id_book")
+    private DAOBook id_book;
     @ManyToOne()
-    @JoinColumn(name="idUser")
-    private UsersDTO idUser;
+    @JoinColumn(name="id_user")
+    private UsersDTO id_user;
 
     public UsersBook() {
     }
 
-    public UsersBook(int id, DAOBook idBook, UsersDTO idUser) {
+    public UsersBook(int id, DAOBook id_book, UsersDTO id_user) {
         this.id = id;
-        this.idBook = idBook;
-        this.idUser = idUser;
+        this.id_book = id_book;
+        this.id_user = id_user;
     }
 
     public int getId() {
@@ -35,18 +35,18 @@ public class UsersBook {
     }
 
     public DAOBook getIdBook() {
-        return idBook;
+        return id_book;
     }
 
-    public void setIdBook(DAOBook idBook) {
-        this.idBook = idBook;
+    public void setIdBook(DAOBook id_book) {
+        this.id_book = id_book;
     }
 
     public UsersDTO getIdUser() {
-        return idUser;
+        return id_user;
     }
 
-    public void setIdUser(UsersDTO idUser) {
-        this.idUser = idUser;
+    public void setIdUser(UsersDTO id_user) {
+        this.id_user = id_user;
     }
 }

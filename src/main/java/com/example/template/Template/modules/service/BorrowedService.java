@@ -24,13 +24,17 @@ public class BorrowedService {
     public UsersBook borrowBook(Long userID, Long bookID){
         UsersBook usersBook = new UsersBook();
         DAOBook daoBook = this.bookService.borrowBook(bookID);
+        System.out.println("Returning daobook " + daoBook);
 
         if (daoBook != null){
             UsersDTO user = this.userService.findById(userID);
 
+            System.out.println("Returning userID " + user);
+
             usersBook.setIdBook(daoBook);
             usersBook.setIdUser(user);
 
+            System.out.println("Returning usersBook " + usersBook);
             return this.borrowedRepository.save(usersBook);
         }
         else{

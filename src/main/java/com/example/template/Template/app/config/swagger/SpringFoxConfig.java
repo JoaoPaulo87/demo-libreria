@@ -36,11 +36,11 @@ public class SpringFoxConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "API-Template",
-                "API-Template with basic security and swagger configuration for future new APIs.",
+                "Library-demo",
+                "Library-demo with basic security and swagger configuration.",
                 "Version ".concat(version),
                 "",
-                new Contact("Diego Sept", "", "septdiego@gmail.com"),
+                new Contact("Joao Paulo", "", "correaparisejoaopaulo@gmail.com"),
                 "", "", Collections.emptyList());
     }
 

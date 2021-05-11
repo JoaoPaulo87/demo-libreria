@@ -24,8 +24,8 @@ public class BorrowedController {
 
     @PostMapping("/borrow_book")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<UsersBook>borrowBook(@RequestParam(name="idUser") Long userID,
-                                               @RequestParam(name="idBook") Long bookID) {
+    public ResponseEntity<UsersBook>borrowBook(@RequestParam(name="id_user") Long userID,
+                                               @RequestParam(name="id_book") Long bookID) {
         return ResponseEntity.ok(this.borrowedService.borrowBook(userID, bookID));
     }
 

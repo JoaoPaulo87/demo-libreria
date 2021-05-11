@@ -34,7 +34,6 @@ public class BookService {
         if (result.getQuantity() > 0){
             result.setQuantity(result.getQuantity() - 1);
 
-
             return this.bookRepository.save(result);
         }else
             return null;
