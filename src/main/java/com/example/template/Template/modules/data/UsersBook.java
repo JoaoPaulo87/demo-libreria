@@ -13,19 +13,13 @@ public class UsersBook {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     @ManyToOne()
-    @JoinColumn(name="id_book")
-    private DAOBook id_book;
+    @JoinColumn(name = "id_book")
+    private DAOBook bookId;
     @ManyToOne()
-    @JoinColumn(name="id_user")
-    private UsersDTO id_user;
+    @JoinColumn(name = "id_user")
+    private UsersDTO userId;
 
     public UsersBook() {
-    }
-
-    public UsersBook(int id, DAOBook id_book, UsersDTO id_user) {
-        this.id = id;
-        this.id_book = id_book;
-        this.id_user = id_user;
     }
 
     public int getId() {
@@ -36,19 +30,25 @@ public class UsersBook {
         this.id = id;
     }
 
-    public DAOBook getIdBook() {
-        return id_book;
+    public DAOBook getBookId() {
+        return bookId;
     }
 
-    public void setIdBook(DAOBook id_book) {
-        this.id_book = id_book;
+    public void setBookId(DAOBook bookId) {
+        this.bookId = bookId;
     }
 
-    public UsersDTO getIdUser() {
-        return id_user;
+    public UsersDTO getUserId() {
+        return userId;
     }
 
-    public void setIdUser(UsersDTO id_user) {
-        this.id_user = id_user;
+    public void setUserId(UsersDTO userId) {
+        this.userId = userId;
+    }
+
+    public UsersBook(int id, DAOBook bookId, UsersDTO userId) {
+        this.id = id;
+        this.bookId = bookId;
+        this.userId = userId;
     }
 }
